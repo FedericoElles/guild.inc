@@ -1,0 +1,11 @@
+info> A new skill has been aquired by starring at the screen.
+
+>observe
+Observe: It seems you are alive and in a town. Why does this surprise you?
+
+>observe
+Observe: You seem healthy.
+info> A new skill as been regained: Voice. Use your voice to interact with the world
+set flags.speak true
+
+>bank

@@ -1,13 +1,69 @@
+html {
+    font-family: sans-serif;
+}
+
+
+.right{
+    float: right;
+}
+
 div.msg{
     width: 400px;
     height: 100px;
-    background-color: red;
-
     position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
+    color: #0A476E;
+    
+}
+
+div.msg div{
+    background-color: #8CC5ED;
+    border: 2px solid #0A476E;
+    padding: 10px;
+    margin: auto;
+}
+
+div.msg buttons{
+    height:30px;
+    display:block;
+}
+
+
+
+/* Triange Button */
+.arrow_box {
+    height: 36px;
+    width:0px;
+    left:350px;
+    display:block;
+	position: relative;
+	background: #58705A;
+	border-left: 2px solid #023025;
+}
+.arrow_box:after, .arrow_box:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(88, 112, 90, 0);
+	border-left-color: #58705A;
+	border-width: 15px;
+	margin-top: -15px;
+}
+.arrow_box:before {
+	border-color: rgba(2, 48, 37, 0);
+	border-left-color: #023025;
+	border-width: 18px;
+	margin-top: -18px;
 }
