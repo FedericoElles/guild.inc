@@ -2,11 +2,13 @@ html {
     font-family: sans-serif;
 }
 
-
 .right{
     float: right;
 }
 
+
+
+/* MESSAGES */
 div.msg{
     width: 400px;
     height: 100px;
@@ -66,4 +68,19 @@ div.msg buttons{
 	border-left-color: #023025;
 	border-width: 18px;
 	margin-top: -18px;
+}
+
+div.console{
+  position:fixed;
+  bottom: 0px;
+  left:0px;
+  right:0px;
+  text-align: center;
+}
+
+div.console input{
+  width: 90%;
+  font-size: 150%;
+  height: 200%;
+  padding: 10px;
 }

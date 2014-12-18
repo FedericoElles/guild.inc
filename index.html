@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en" ng-app="app">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +11,11 @@
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="style.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+        <script src="script.js"></script>
+
     </head>
-    <body>
+    <body ng-controller="appCtrl">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -21,24 +23,21 @@
         
         <!-- Message container -->
         <div class="msg">
-            <div class="info">
-                <p>A new skill has been learned by staring at the screen:<br>
-                <b>Observe</b> LVL 1</p>
+            <div class="info" ng-show="ctrl.show.msg" ng-click="closeMsg()">
+                <p ng-bind="ctrl.text.msg"></p>
                 
-                <div class="buttons right">
-                    <span class="arrow_box"></span>
-                </div>
+                <span class="arrow_box"></span>
+
             </div>
         </div>
 
         
-        <div class=console>
-            <input type="text">
-        
+        <div class="console" ng-show="ctrl.show.console">
+          Say: <input type="text" ng-enter="enterConsole()" ng-model="ctrl.text.console">
         </div>
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
-
+      <pre>{{ctrl | json}}</pre>
        
     </body>
 </html>
