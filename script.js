@@ -1,7 +1,7 @@
 function c(t){console.log(t)}
 
 
-function appCtrl($scope){
+function appCtrl($scope, player){
   $scope.ctrl = {
     show: {
       msg:false,
@@ -13,24 +13,38 @@ function appCtrl($scope){
     text: {
       msg: '',
       console: '',
+    },
+    data: {
+      stats: player
     }
   };
   
   
   var cmds = {
-    reg: function(path, func){
-      this.path = func;
+    _reg: function(path, func){
+      this[path] = func;
+    },
+    _exec: function(cmd){
+      //stripe private functions
+      if (cmd[0] === '_'){
+        cmd = cmd.substr(1);
+      }
+      var words = cmd.split(' ');
+      var key = words.shift();
+      if (typeof this[key] === 'function'){
+        this[key](words.join(' '));
+      }
     }
   }  
   
   
   //message box
-  cmds.reg('msg', function(text){
+  cmds._reg('msg', function(text){
     $scope.ctrl.show.msg = true;
     $scope.ctrl.text.msg = text;
   });
-  $scope.closeMsg = function(){
-    $scope.ctrl.show.msg = false;
+  $scope.close = function(key){
+    $scope.ctrl.show[key] = false;
   }
   
   
@@ -39,10 +53,31 @@ function appCtrl($scope){
     var text = $scope.ctrl.text.console;
     if (text){
       c('>' + text);
+      cmds._exec(text);
       $scope.ctrl.text.console = '';
     }
   }
 }
+
+
+//PLAYER
+function playerFactory(){
+  var player = {
+    name: 'Unnamed',
+    lvl: 0,
+    stats: {
+      str: 1,
+      vit: 1,
+      wis: 1,
+      agi: 1,
+      int: 1,
+      luck: 1
+    }
+  };
+  
+  return player;
+}
+
 
 
 function ngEnterDirective() {
@@ -61,4 +96,5 @@ function ngEnterDirective() {
 
 angular.module('app', [])
   .controller('appCtrl', appCtrl)
+  .factory('player', playerFactory)
   .directive('ngEnter', ngEnterDirective);

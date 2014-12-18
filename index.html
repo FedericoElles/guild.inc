@@ -23,12 +23,49 @@
         
         <!-- Message container -->
         <div class="msg">
-            <div class="info" ng-show="ctrl.show.msg" ng-click="closeMsg()">
+            <div class="info" ng-show="ctrl.show.msg" ng-click="close('msg')">
                 <p ng-bind="ctrl.text.msg"></p>
                 
                 <span class="arrow_box"></span>
 
             </div>
+          <div class="stats" ng-click="close('stats')"> 
+            <table>
+              <tr>
+                <td>Name:</td>
+                <td ng-bind="ctrl.data.stats.name"></td>
+              </tr>
+              <tr>
+                <td>Level:</td>
+                <td ng-bind="ctrl.data.stats.lvl"></td>
+              </tr>
+              <tr>
+                <td>STR:</td>
+                <td ng-bind="ctrl.data.stats.stats.str"></td>
+              </tr>
+              <tr>
+                <td>VIT:</td>
+                <td ng-bind="ctrl.data.stats.stats.vit"></td>
+              </tr>                
+              <tr>
+                <td>WIS:</td>
+                <td ng-bind="ctrl.data.stats.stats.wis"></td>
+              </tr>                
+              <tr>
+                <td>AGI:</td>
+                <td ng-bind="ctrl.data.stats.stats.agi"></td>
+              </tr>                
+              <tr>
+                <td>INT:</td>
+                <td ng-bind="ctrl.data.stats.stats.int"></td>
+              </tr>                
+              <tr>
+                <td>LUCK:</td>
+                <td ng-bind="ctrl.data.stats.stats.luck"></td>
+              </tr>                              
+              
+            </table>
+          </div>
         </div>
 
         
